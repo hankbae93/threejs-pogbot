@@ -8,8 +8,11 @@ import * as THREE from "three";
 
 const scene = new THREE.Scene();
 scene.background = new THREE.Color( 0xf0f0f0 );
+const gridHelper = new THREE.GridHelper( 1000, 20 );
+scene.add( gridHelper );
 
 const camera = new THREE.PerspectiveCamera(75,window.innerWidth / window.innerHeight, 0.1, 1000 );
+
 
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize( window.innerWidth, window.innerHeight );
@@ -19,7 +22,8 @@ document.body.appendChild( renderer.domElement );
  * BoxGeometry 정육면체를 만들 때 쓰이는 객체
  * @type {BoxGeometry}
  * geometry는 점, 면을 의미
- * MeshBasicMateiral
+ * MeshBasicMateiral : 면의 색상 정도
+ * mesh
  */
 const geometry = new THREE.BoxGeometry(1,1,1);
 const material = new THREE.MeshBasicMaterial({color: 0x00ff00 });
